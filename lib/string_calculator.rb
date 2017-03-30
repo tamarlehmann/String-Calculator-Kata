@@ -1,7 +1,7 @@
 class StringCalculator
 
-  def add(num)
-    return num
+  def add
+    return 0
   end
 
 end

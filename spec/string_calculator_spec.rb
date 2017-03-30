@@ -4,8 +4,8 @@ describe StringCalculator do
   subject(:calc) { StringCalculator.new }
   # let(:num) { double :num }
 
-  it 'Add method takes an empty string as an argument' do
-    expect(calc.add("")).to eq("")
+  it 'Returns 0 for an empty string' do
+    expect(calc.add).to eq(0)
   end
 
 
