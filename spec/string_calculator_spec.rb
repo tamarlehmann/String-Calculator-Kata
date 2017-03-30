@@ -38,7 +38,11 @@ describe StringCalculator do
     expect{calc.add("1,-1,-3")}.to raise_exception{message}
   end
 
-  it "Returns sum of numbers with delimiters of any length and format" do
+  it "Returns sum of numbers with delimiters of any length" do
     expect(calc.add("//[***]\n1***2***3")).to eq(6)
+  end
+
+  it "Returns sum of numbers with multiple delimiters of any length and format" do
+    expect(calc.add("//[*][%]\n1*2%3")).to eq(6)
   end
 end
