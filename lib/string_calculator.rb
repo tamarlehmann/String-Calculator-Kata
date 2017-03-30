@@ -1,7 +1,8 @@
 class StringCalculator
 
-  def add
-    return 0
+  def add(num)
+    return 0 if (num == "")
+    return num
   end
 
 end
