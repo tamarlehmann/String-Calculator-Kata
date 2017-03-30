@@ -45,4 +45,8 @@ describe StringCalculator do
   it "Returns sum of numbers with multiple delimiters of any length and format" do
     expect(calc.add("//[*][%]\n1*2%3")).to eq(6)
   end
+
+  it "Should ignore numbers bigger than 1000" do
+    expect(calc.add("1,2,1001")).to eq(3)
+  end
 end
