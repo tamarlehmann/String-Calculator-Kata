@@ -16,4 +16,7 @@ describe StringCalculator do
     expect(calc.add("1,2")).to eq(3)
   end
 
+  it "Returns the sum of unknown amount of numbers" do
+    expect(calc.add("1,2,3,4,5,6,7")).to eq(28)
+  end
 end
