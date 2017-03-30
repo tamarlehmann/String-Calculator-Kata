@@ -8,8 +8,12 @@ describe StringCalculator do
     expect(calc.add("")).to eq(0)
   end
 
+  it 'Returns num if only a single number is given' do
+    expect(calc.add("5")).to eq(5)
+  end
 
-
-
+  it "Returns the sum of two numbers" do
+    expect(calc.add("1,2")).to eq(3)
+  end
 
 end
