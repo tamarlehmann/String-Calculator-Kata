@@ -11,10 +11,8 @@ class StringCalculator
     return num.to_i if single_num?(num)
 
     @arr = num.gsub!((/[^\P{P}-]+/), " ").split(" ")
-    @arr.each do |x|
-      is_negative?(x) ? @negatives.push(x.to_i) : @sum += x.to_i
-    end
-    @negatives.length >= 1 ? (raise "negatives are not allowed: #{@negatives.join(',')}") : (return @sum)
+    @arr.each { |x| is_negative?(x) ? @negatives.push(x.to_i) : @sum += x.to_i}
+    has_negatives? ? (raise "negatives are not allowed: #{@negatives.join(',')}") : (return @sum)
   end
 
   private
@@ -29,6 +27,10 @@ class StringCalculator
 
   def is_negative?(num)
     num.to_i < 0
+  end
+
+  def has_negatives?
+    @negatives.length >= 1
   end
 
 end
