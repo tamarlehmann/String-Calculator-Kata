@@ -3,6 +3,7 @@ class StringCalculator
   def initialize
     @sum = 0
     @arr = []
+    @negatives = []
   end
 
   def add(num)
@@ -11,10 +12,9 @@ class StringCalculator
 
     @arr = num.gsub!((/[^\P{P}-]+/), " ").split(" ")
     @arr.each do |x|
-      raise "negatives not allowed: #{x.to_i}" if is_negative?(x.to_i)
-      @sum += x.to_i
+      is_negative?(x) ? @negatives.push(x.to_i) : @sum += x.to_i
     end
-    return @sum
+    @negatives.length >= 1 ? (raise "negatives are not allowed: #{@negatives.join(',')}") : (return @sum)
   end
 
   private
@@ -28,7 +28,7 @@ class StringCalculator
   end
 
   def is_negative?(num)
-    num < 0
+    num.to_i < 0
   end
 
 end

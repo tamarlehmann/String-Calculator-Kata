@@ -30,6 +30,11 @@ describe StringCalculator do
 
   it "Throws an exception when passed a negative number" do
     message = "negatives not allowed: -1"
-    expect{calc.add("1,4,-1")}.to raise_exception(message)
+    expect{calc.add("1,4,-1")}.to raise_exception{message}
+  end
+
+  it "Throws an exception when passed multiple negative numbers" do
+    message = "negatives not allowed: -1, -3"
+    expect{calc.add("1,-1,-3")}.to raise_exception{message}
   end
 end
