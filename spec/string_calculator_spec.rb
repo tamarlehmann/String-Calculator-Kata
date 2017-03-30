@@ -27,5 +27,9 @@ describe StringCalculator do
   it "Returns sum of numbers when different delimiters are used" do
     expect(calc.add("//;\n1;2")).to eq(3)
   end
-  
+
+  it "Throws an exception when passed a negative number" do
+    message = "negatives not allowed: -1"
+    expect{calc.add("1,4,-1")}.to raise_exception(message)
+  end
 end
